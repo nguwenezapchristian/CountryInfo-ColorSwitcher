@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('Nunito_Sans/NunitoSans-Italic-VariableFont_YTLC\,opsz\,wdth\,wght.ttf') format('ttf'),
+         url('Nunito_Sans/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+  }
