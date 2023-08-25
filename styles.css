@@ -93,7 +93,6 @@
     list-style: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    
   }
   .dropdown-content ul {
     width: 100px;
@@ -101,6 +100,9 @@
     padding-left: 0px;
     cursor: pointer;
     font-weight: 300;
+    display: block;
+  }
+  .drop-down:hover .dropdown-content{
     display: block;
   }
   
