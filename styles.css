@@ -12,13 +12,16 @@
   }
   body {
     font-family: 'Nunito Sans', sans-serif;
+    background-color: hsl(0, 0%, 98%);
   }
   .nav-bar, .nav-dark-mode {
     display: flex;
     justify-content: space-between;
   }
   .nav-bar {
-    margin: 30px 15px;
+    padding: 30px 15px;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   #btn-mode {
     background-color: white;
@@ -38,21 +41,66 @@
   }
   
   .search-input {
-    padding: 5px 30px 5px 30px;
-    border: 1px solid white;
+    padding: 5px 30px 5px 65px;
+    border: none;
     border-radius: 5px;
     outline: none;
     width: 280px;
     height: 40px;
+    color: hsl(0, 0%, 52%);
   }
   
   .search-icon {
     position: absolute;
     top: 50%;
-    left: 10px;
+    left: 30px;
     transform: translateY(-50%);
-    font-size: 16px;
-    color: #555;
+    font-size: 14px;
+    color: hsl(0, 0%, 52%);
+    cursor: pointer;
   }
-  
+  /* dropdown styles */
+  .drop-down {
+    position: relative;
+    display: inline-block;
+    margin: 30px 0px 0px 15px; 
+    
+  }
+  .dropdown-btn {
+    margin-bottom: 5px;
+    text-align: left;
+    padding-left: 20px;
+    width: 210px;
+    height: 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: hsl(0, 0%, 100%);
+    font-weight: 300;
+    border: none;
+    cursor: pointer;
+  }
+  .dropdown-btn::after {
+    content: '\25BC';
+    margin-left: 60px;
+    color: hsl(0, 0%, 52%);
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: hsl(0, 0%, 100%);
+    min-width: 210px;
+    z-index: 1;
+    list-style: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    
+  }
+  .dropdown-content ul {
+    width: 100px;
+    margin: 10px 0 10px 20px;
+    padding-left: 0px;
+    cursor: pointer;
+    font-weight: 300;
+    display: block;
+  }
   
