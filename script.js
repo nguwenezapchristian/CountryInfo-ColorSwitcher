@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function getCountryInfo(country) {
     try {
-        const img = document.createElement('img');
+        
         const response = await fetch(`https://restcountries.com/v3.1/name/${country}?fields=name,capital,
         currencies,flags,population,region,nativename,languages,subregion`);
         
@@ -27,8 +27,7 @@ async function getCountryInfo(country) {
             console.log(countryInfo);
             const processedData = getFewCountryInfo(countryInfo);
             console.log(processedData);
-            img.src = processedData.flag;
-            displayingInfoDiv.appendChild(img);
+            displaySearchedCountry(processedData);   
         }
     } catch (error) {
         console.log('An Error: ', error.message);
@@ -46,4 +45,28 @@ function getFewCountryInfo(info) {
         capital: info.capital[0],
     }
     return fewInfo;
+}
+function displaySearchedCountry(data) {
+    const countrySearchedcard = document.createElement('div');
+    const flag = document.createElement('img');
+    const countryName = document.createElement('h1');
+    const population = document.createElement('p');
+    const region = document.createElement('p');
+    const capital = document.createElement('p');
+
+    flag.src = data.flag;
+    countryName.textContent = data.name;
+    population.textContent = data.population;
+    region.textContent = data.region;
+    capital.textContent = data.capital;
+
+    const scaleValue = 0.80;
+    flag.style.transform = `scale(${scaleValue})`;
+
+    countrySearchedcard.appendChild(flag );
+    countrySearchedcard.appendChild(countryName);
+    countrySearchedcard.appendChild(population);
+    countrySearchedcard.appendChild(region);
+    countrySearchedcard.appendChild(capital);
+    displayingInfoDiv.appendChild(countrySearchedcard);
 }
