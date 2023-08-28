@@ -1,4 +1,4 @@
-const displayingInfoDiv = document.querySelector('.displaying-country');
+let displayingInfoDiv = document.querySelector('.displaying-country');
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.search-input');
@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     searchIcon.addEventListener('click', () => {
         const country = searchInput.value;
         console.log(country);
+        displayingInfoDiv.textContent = "";
         getCountryInfo(country);
     });
 });
@@ -47,21 +48,18 @@ function getFewCountryInfo(info) {
     return fewInfo;
 }
 function displaySearchedCountry(data) {
-    const countrySearchedcard = document.createElement('div');
-    const flag = document.createElement('img');
-    const countryName = document.createElement('h1');
-    const population = document.createElement('p');
-    const region = document.createElement('p');
-    const capital = document.createElement('p');
+    const countrySearchedcard = document.createElement('div'); countrySearchedcard.className = "countrySearchedDiv";
+    const flag = document.createElement('img'); flag.className = "countryFlag";
+    const countryName = document.createElement('h1'); countryName.className = "countryName";
+    const population = document.createElement('p'); population.className = "info-pop";
+    const region = document.createElement('p'); region.className = "info-reg";
+    const capital = document.createElement('p'); capital.className = "info-cap";
 
     flag.src = data.flag;
     countryName.textContent = data.name;
-    population.textContent = data.population;
-    region.textContent = data.region;
-    capital.textContent = data.capital;
-
-    const scaleValue = 0.80;
-    flag.style.transform = `scale(${scaleValue})`;
+    population.innerHTML = `<b>Population:</b> ${data.population}`;
+    region.innerHTML = `<b>Region:</b> ${data.region}`;
+    capital.innerHTML = `<b>Capital:</b> ${data.capital}`;
 
     countrySearchedcard.appendChild(flag );
     countrySearchedcard.appendChild(countryName);

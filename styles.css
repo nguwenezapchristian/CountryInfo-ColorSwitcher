@@ -105,4 +105,30 @@
   .drop-down:hover .dropdown-content{
     display: block;
   }
+  /* country searched output styles */
+  .countrySearchedDiv {
+    background-color: hsl(0, 0%, 100%);
+    width: 285px;
+    height: fit-content;
+    margin: 45px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .countryFlag {
+    /* transform: scale(0.8); */
+    width: 285px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .countryName {
+    padding: 20px 0px 10px 20px;
+    font-size: 20px;
+  }
+  .info-pop, .info-reg, .info-cap {
+    padding: 10px 0px 5px 20px;
+  } 
+  .info-cap {
+    padding-bottom: 25px;
+  }
   
