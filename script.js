@@ -4,32 +4,41 @@ const regions = document.querySelectorAll('.region');
 // getting the user input and displaying the info of a country
 // searched when the user clicks on the search icon
 
-document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.querySelector('.search-input');
-    const searchIcon = document.querySelector('.search-icon');
+if (document.getElementById('search')) {
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.querySelector('.search-input');
+        const searchIcon = document.querySelector('.search-icon');
 
-    searchIcon.addEventListener('click', () => {
-        const country = searchInput.value;
-        displayingInfoDiv.textContent = "";
-        getCountryInfo(country);
-        searchInput.value = "";
+        searchIcon.addEventListener('click', () => {
+            const country = searchInput.value;
+            displayingInfoDiv.textContent = "";
+            getCountryInfo(country);
+            searchInput.value = "";
+        });
     });
-});
+}
 
 // displaying countries in the same region when the
 // user clicks on a region in the dropdown menu
 
-document.addEventListener('DOMContentLoaded', () => {
+if (document.getElementById('search')) {
+    document.addEventListener('DOMContentLoaded', () => {
 
-    regions.forEach((region) => {
-        region.addEventListener('click', () => {
-            const value = region.getAttribute('data-value');
-            console.log(value);
-            regionCountries(value);
-            // displayRegion(value);
+        regions.forEach((region) => {
+            region.addEventListener('click', () => {
+                const value = region.getAttribute('data-value');
+                // console.log(value);
+                regionCountries(value);
+            })
         })
     })
-})
+}
+
+// display all countries when the document is loaded
+
+if (document.getElementById('display')) {
+    dispalyAllCountries();
+}
 
 // get all the country info needed
 
@@ -44,9 +53,7 @@ async function getCountryInfo(country) {
             return;
         } else {
             const [countryInfo] = await response.json();
-            console.log(countryInfo);
-            // const processedData = getFewCountryInfo(countryInfo);
-            // console.log(processedData);
+            // console.log(countryInfo);
             displaySearchedCountry(countryInfo);  
         }
     } catch (error) {
@@ -69,7 +76,6 @@ async function regionCountries(region) {
 
             for (let i = 0; i < countriesInfo.length; i++) {
                 displaySearchedCountry(countriesInfo[i]);
-                console.log(countriesInfo[i].name.common);
             }
             return countriesInfo;
         }
@@ -80,7 +86,6 @@ async function regionCountries(region) {
 
 // fetch all countries and their info
 
-dispalyAllCountries()
 async function getAllCountries() {
     try {
         const responsed = await fetch(`https://restcountries.com/v3.1/all?fields=name,capital,
@@ -91,25 +96,12 @@ async function getAllCountries() {
             return;
         } else {
             const allCountries = await responsed.json();
-            console.log(allCountries);
+            // console.log(allCountries);
             return allCountries;
         }
     } catch (error) {
         console.log('An Error: ', error.message);
     }
-}
-
-// get few country info
-
-function getFewCountryInfo(info) {
-    const fewInfo = {
-        flag: info.flags.png,
-        name: info.name.common,
-        population: info.population,
-        region: info.region,
-        capital: info.capital[0],
-    }
-    return fewInfo;
 }
 
 // display all countries with few info on them
@@ -120,15 +112,6 @@ async function dispalyAllCountries() {
         displaySearchedCountry(data[i]);
     }
 }
-
-// display countries by region
-
-// async function displayRegion(region) {
-//     const countriesInfo = await regionCountries(region);
-//     for (let i = 0; i < countriesInfo.length; i++) {
-//         displaySearchedCountry(countriesInfo[i]);
-//     }
-// }
 
 // display few info of a searched country
 
@@ -153,4 +136,7 @@ function displaySearchedCountry(data) {
     countrySearchedcard.appendChild(capital);
     displayingInfoDiv.appendChild(countrySearchedcard);
 }
+
+// code for loading more info of a clicked country
+
 
