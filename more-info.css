@@ -1,0 +1,15 @@
+  /* styles for more-info.html document */
+  .info-container {
+    margin: 0 45px 0 45px;
+  }
+  .back-btn {
+    width: 120px;
+    height: 45px;
+    margin: 40px 0px;
+    color: hsl(0, 0%, 20%);
+    font-size: 16px;
+    background-color: hsl(0, 0%, 100%);
+    padding: 10px;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  }
