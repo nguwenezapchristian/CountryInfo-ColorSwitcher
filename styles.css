@@ -30,9 +30,9 @@
     border: none;
   }
 /* container styles */
-.container {
-    background-color: hsl(0, 0%, 98%);
-}
+/* .container, .info-container {
+    background-color: ;
+} */
 /* styles for search container */
 .search-container {
     position: relative;
@@ -134,6 +134,7 @@
   .info-cap {
     padding-bottom: 25px;
   }
+
 
 /* desktop grid view */
 @media (min-width: 500px) {

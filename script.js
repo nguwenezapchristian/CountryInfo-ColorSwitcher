@@ -116,12 +116,19 @@ async function dispalyAllCountries() {
 // display few info of a searched country
 
 function displaySearchedCountry(data) {
-    const countrySearchedcard = document.createElement('div'); countrySearchedcard.className = "countrySearchedDiv";
-    const flag = document.createElement('img'); flag.className = "countryFlag";
-    const countryName = document.createElement('h1'); countryName.className = "countryName";
-    const population = document.createElement('p'); population.className = "info-pop";
-    const region = document.createElement('p'); region.className = "info-reg";
-    const capital = document.createElement('p'); capital.className = "info-cap";
+    const countrySearchedcard = document.createElement('div');
+    countrySearchedcard.className = "countrySearchedDiv";
+    countrySearchedcard.setAttribute('data-value', `${data.name.common}`);
+    const flag = document.createElement('img');
+    flag.className = "countryFlag";
+    const countryName = document.createElement('h1');
+    countryName.className = "countryName";
+    const population = document.createElement('p');
+    population.className = "info-pop";
+    const region = document.createElement('p');
+    region.className = "info-reg";
+    const capital = document.createElement('p');
+    capital.className = "info-cap";
 
     flag.src = data.flags.png;
     countryName.textContent = data.name.common;
@@ -138,5 +145,6 @@ function displaySearchedCountry(data) {
 }
 
 // code for loading more info of a clicked country
+
 
 
