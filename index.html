@@ -12,13 +12,13 @@
     </head>
     <body>
         <nav class="nav-bar">
-            <h1>Where in the World?</h1>
-            <span class="nav-dark-mode">
+            <h1 style="padding: 30px 15px;">Where in the World?</h1>
+            <div class="nav-dark-mode" style="padding: 30px 15px;">
                 <button id="btn-mode">
                     <span class="fa-regular fa-moon"></span>
                 </button>
                 <h1>Dark Mode</h1>
-            </span>
+            </div>
         </nav>
         <div class="container">
             <!-- search-filter class will be used to flex the element on desktop view -->
@@ -27,16 +27,16 @@
                     <input type="text" class="search-input" placeholder="Search for a country...">
                     <i class="fas fa-search search-icon"></i>
                 </div>
-            </div>
-            <div class="drop-down">
-                <button class="dropdown-btn">Filter by Region</button>
-                <li class="dropdown-content">
-                    <ul>Africa</ul>
-                    <ul>America</ul>
-                    <ul>Asia</ul>
-                    <ul>Europe</ul>
-                    <ul>Oceania</ul>
-                </li>
+                <div class="drop-down">
+                    <button class="dropdown-btn">Filter by Region</button>
+                    <li class="dropdown-content">
+                        <ul data-value="africa" class="region">Africa</ul>
+                        <ul data-value="america" class="region">America</ul>
+                        <ul data-value="asia" class="region">Asia</ul>
+                        <ul data-value="europe" class="region">Europe</ul>
+                        <ul data-value="oceania" class="region">Oceania</ul>
+                    </li>
+                </div>
             </div>
             <div class="displaying-country"></div>
         </div>
