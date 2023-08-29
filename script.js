@@ -1,4 +1,8 @@
 let displayingInfoDiv = document.querySelector('.displaying-country');
+const regions = document.querySelectorAll('.region');
+
+// getting the user input and displaying the info of a country
+// searched when the user clicks on the search icon
 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.querySelector('.search-input');
@@ -10,6 +14,21 @@ document.addEventListener('DOMContentLoaded', () => {
         getCountryInfo(country);
     });
 });
+
+// displaying countries in the same region when the
+// user clicks on a region in the dropdown menu
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    regions.forEach((region) => {
+        region.addEventListener('click', () => {
+            const value = region.getAttribute('data-value');
+            console.log(value);
+            regionCountries(value);
+            // displayRegion(value);
+        })
+    })
+})
 
 // get all the country info needed
 
@@ -28,6 +47,30 @@ async function getCountryInfo(country) {
             // const processedData = getFewCountryInfo(countryInfo);
             // console.log(processedData);
             displaySearchedCountry(countryInfo);  
+        }
+    } catch (error) {
+        console.log('An Error: ', error.message);
+    }
+}
+
+// get all countries by region
+
+async function regionCountries(region) {
+    try {
+        const response = await fetch(`https://restcountries.com/v3.1/region/${region}`);
+
+        if (response.status !== 200) {
+           console.log(`HTTP Error: ${response.status}`);
+           return; 
+        } else {
+            const countriesInfo = await response.json();
+            displayingInfoDiv.textContent = "";
+            
+            for (let i = 0; i < countriesInfo.length; i++) {
+                displaySearchedCountry(countriesInfo[i]);
+                console.log(countriesInfo[i].name.common);
+            }
+            return countriesInfo;
         }
     } catch (error) {
         console.log('An Error: ', error.message);
@@ -76,6 +119,15 @@ async function dispalyAllCountries() {
         displaySearchedCountry(data[i]);
     }
 }
+
+// display countries by region
+
+// async function displayRegion(region) {
+//     const countriesInfo = await regionCountries(region);
+//     for (let i = 0; i < countriesInfo.length; i++) {
+//         displaySearchedCountry(countriesInfo[i]);
+//     }
+// }
 
 // display few info of a searched country
 

@@ -18,12 +18,9 @@
     display: flex;
     justify-content: space-between;
   }
-  .nav-dark-mode {
-    padding-right: 30px;
-  }
   .nav-bar {
     width: 100%;
-    padding: 30px 15px;
+    margin: 0px 0px;
     background-color: hsl(0, 0%, 100%);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
@@ -49,7 +46,7 @@
     border: none;
     border-radius: 5px;
     outline: none;
-    width: 280px;
+    width: 250px;
     height: 40px;
     color: hsl(0, 0%, 52%);
   }
@@ -113,14 +110,15 @@
   .countrySearchedDiv {
     background-color: hsl(0, 0%, 100%);
     width: 285px;
-    height: fit-content;
+    height: 360px;
     margin: 45px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
   }
   .countryFlag {
-    /* transform: scale(0.8); */
     width: 285px;
+    height: 180px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -135,4 +133,19 @@
   .info-cap {
     padding-bottom: 25px;
   }
-  
+
+/* desktop grid view */
+@media (min-width: 500px) {
+  .container {
+    margin: 30px 45px;
+  }
+  /* .displaying-country {
+    display: grid;
+  } */
+  .search-filter {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 45px;
+    padding: 0px;
+  }
+}
