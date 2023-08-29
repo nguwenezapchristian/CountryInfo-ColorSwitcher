@@ -20,9 +20,10 @@
   }
   .nav-bar {
     width: 100%;
-    margin: 0px 0px;
+    margin: 0px 0px 10px 0px;
+    
     background-color: hsl(0, 0%, 100%);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
   }
   #btn-mode {
     background-color: white;
@@ -36,7 +37,7 @@
 .search-container {
     position: relative;
     display: inline-block;
-    margin: 20px 15px;
+    margin: 10px 15px 20px 15px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
   }
