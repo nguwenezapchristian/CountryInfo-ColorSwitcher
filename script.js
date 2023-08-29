@@ -146,5 +146,19 @@ function displaySearchedCountry(data) {
 
 // code for loading more info of a clicked country
 
+document.addEventListener('DOMContentLoaded', () => {
+    const displayedGrid = document.getElementById('display');
+
+    if (displayedGrid) {
+        displayedGrid.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const clickedElement = event.target;
+            if (clickedElement.classList.contains('countrySearchedDiv')) {
+                const countryGridClicked = clickedElement.getAttribute('data-value');
+                console.log(countryGridClicked);
+            }
+        })
+    }
+})
 
 
