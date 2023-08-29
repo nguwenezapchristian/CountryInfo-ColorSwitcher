@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const country = searchInput.value;
         displayingInfoDiv.textContent = "";
         getCountryInfo(country);
+        searchInput.value = "";
     });
 });
 
@@ -65,7 +66,7 @@ async function regionCountries(region) {
         } else {
             const countriesInfo = await response.json();
             displayingInfoDiv.textContent = "";
-            
+
             for (let i = 0; i < countriesInfo.length; i++) {
                 displaySearchedCountry(countriesInfo[i]);
                 console.log(countriesInfo[i].name.common);
