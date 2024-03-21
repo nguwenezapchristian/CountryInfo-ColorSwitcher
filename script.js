@@ -15,6 +15,14 @@ if (document.getElementById('search')) {
             getCountryInfo(country);
             searchInput.value = "";
         });
+        searchInput.addEventListener('keypress', function(event) {
+            if (event.keyCode === 13) {
+                const country = searchInput.value;
+                displayingInfoDiv.textContent = "";
+                getCountryInfo(country);
+                searchInput.value = "";
+            }
+        });
     });
 }
 
